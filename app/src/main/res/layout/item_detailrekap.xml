@@ -11,17 +11,18 @@
         android:layout_height="wrap_content"
         android:background="@drawable/bgred">
 
+
             <TextView
-                android:id="@+id/tittle_username"
+                android:id="@+id/txtjamlogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Username"
+                android:text="Jam Login"
                 android:layout_margin="7dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                android:id="@+id/usernameLogin"
+                android:id="@+id/detjamlogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
@@ -30,81 +31,41 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tittle_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Password"
-                android:layout_margin="7dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tittle_username" />
-
-            <TextView
-                android:id="@+id/passwordLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="2"
-                android:layout_margin="7dp"
-                app:layout_constraintTop_toBottomOf="@id/usernameLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                />
-
-            <TextView
-                android:id="@+id/tittle_jam_login"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Jam Login"
-                android:layout_margin="7dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tittle_password" />
-
-
-            <TextView
-                android:id="@+id/jamLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:layout_margin="7dp"
-                app:layout_constraintTop_toBottomOf="@id/passwordLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                />
-
-            <TextView
-            android:id="@+id/tittle_tanggal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tanggal"
-            android:layout_margin="7dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tittle_jam_login" />
-
-
-            <TextView
-                android:id="@+id/tanggalLogin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="4"
-                android:layout_margin="7dp"
-                app:layout_constraintTop_toBottomOf="@id/jamLogin"
-                app:layout_constraintEnd_toEndOf="parent"
-                />
-            <TextView
-                android:id="@+id/tittle_jam_logout"
+                android:id="@+id/txtjamlogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Jam Logout"
                 android:layout_margin="7dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tittle_tanggal" />
+                app:layout_constraintTop_toBottomOf="@id/txtjamlogin"/>
 
             <TextView
-                android:id="@+id/jamLogout"
+                android:id="@+id/detjamlogout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="5"
+                android:text="2"
                 android:layout_margin="7dp"
-                app:layout_constraintTop_toBottomOf="@id/tanggalLogin"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintTop_toBottomOf="@id/detjamlogin"/>
+
+            <TextView
+                android:id="@+id/txttanggal"
+                android:layout_width="64dp"
+                android:layout_height="17dp"
+                android:layout_margin="7dp"
+                android:text="Tanggal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtjamlogout" />
+
+            <TextView
+                android:id="@+id/dettanggal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_margin="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detjamlogout"/>
+
             <TextView
                 android:id="@+id/txtlatitude"
                 android:layout_width="64dp"
@@ -112,16 +73,16 @@
                 android:layout_margin="7dp"
                 android:text="Latitude : "
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tittle_jam_logout" />
+                app:layout_constraintTop_toBottomOf="@id/txttanggal" />
 
             <TextView
-                android:id="@+id/latitude"
+                android:id="@+id/detlatitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3"
                 android:layout_margin="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/jamLogout"/>
+                app:layout_constraintTop_toBottomOf="@id/dettanggal"/>
 
             <TextView
                 android:id="@+id/txtlongitude"
@@ -133,13 +94,31 @@
                 app:layout_constraintTop_toBottomOf="@id/txtlatitude" />
 
             <TextView
-                android:id="@+id/longitude"
+                android:id="@+id/detlongitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3"
                 android:layout_margin="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/latitude"/>
+                app:layout_constraintTop_toBottomOf="@id/detlatitude"/>
+
+            <TextView
+                android:id="@+id/textNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="7dp"
+                android:text="Nama siswa yang diajar : "
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/txtlongitude" />
+
+            <TextView
+                android:id="@+id/detNama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:layout_margin="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detlongitude"/>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>

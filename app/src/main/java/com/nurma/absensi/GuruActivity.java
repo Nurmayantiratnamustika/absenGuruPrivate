@@ -17,6 +17,7 @@ import com.nurma.absensi.adapter.LoginAdapter;
 import com.nurma.absensi.helper.ServiceGenerator;
 import com.nurma.absensi.model.Guru;
 import com.nurma.absensi.model.Login;
+import com.nurma.absensi.model.LoginResponse;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -31,7 +32,7 @@ import retrofit2.Response;
 
 public class GuruActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    List<Login> loginList;
+    List<LoginResponse> loginList;
     private LoginAdapter loginAdapter;
     Button logout;
     String username;
@@ -41,58 +42,30 @@ public class GuruActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guru);
         recyclerView = findViewById(R.id.rvLogin);
-        logout = findViewById(R.id.buttonlogout);
+
         loginList = new ArrayList<>();
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         loginAdapter = new LoginAdapter(loginList,getApplicationContext());
         recyclerView.setAdapter(loginAdapter);
         Bundle ekstra = getIntent().getExtras();
-        username= ekstra.getString("nama");
+        username= ekstra.getString("username");
         String password = ekstra.getString("password");
-        id = ekstra.getString("id");
         ApiInterface service = ServiceGenerator.createService(ApiInterface.class);
-        Call<List<Login>> call = service.listLogin(username,password);
-        call.enqueue(new Callback<List<Login>>() {
+        Call<List<LoginResponse>> call = service.listLogin(username,password);
+        call.enqueue(new Callback<List<LoginResponse>>() {
             @Override
-            public void onResponse(Call<List<Login>> call, Response<List<Login>> response) {
+            public void onResponse(Call<List<LoginResponse>> call, Response<List<LoginResponse>> response) {
                 loginList = response.body();
                 loginAdapter.setLoginList(loginList);
 
             }
 
             @Override
-            public void onFailure(Call<List<Login>> call, Throwable t) {
+            public void onFailure(Call<List<LoginResponse>> call, Throwable t) {
                 Toast.makeText( GuruActivity.this,"Error",Toast.LENGTH_LONG).show();
             }
         });
     }
 
-
-    public void handleLogout(View view) {
-
-        Date dt=new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
-
-        String tgl_jam=sdf.format(dt);
-        ApiInterface service =ServiceGenerator.createService(ApiInterface.class);
-        Call<Login> call = service.updateLogin(id,tgl_jam);
-        call.enqueue(new Callback<Login>() {
-
-            @Override
-            public void onResponse(Call<Login> call, Response<Login> response) {
-                if (response.isSuccessful()) {
-                    Toast.makeText(GuruActivity.this, "Berhasil", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(GuruActivity.this, MainActivity.class);
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onFailure(Call<Login> call, Throwable t) {
-                Toast.makeText(GuruActivity.this, "Gagal", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-    }
 }

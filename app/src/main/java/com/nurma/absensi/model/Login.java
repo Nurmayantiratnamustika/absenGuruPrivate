@@ -1,5 +1,7 @@
 package com.nurma.absensi.model;
 
+import android.content.Intent;
+
 import com.google.gson.annotations.SerializedName;
 
 public class Login {
@@ -23,6 +25,39 @@ public class Login {
 
     @SerializedName("password")
     private  String password;
+
+    @SerializedName("latitude")
+    private  Double latitude;
+
+    @SerializedName("longitude")
+    private  Double longitude;
+
+    @SerializedName("nim_siswa")
+    private  int nim_siswa;
+
+    public Integer getNim_siswa() {
+        return nim_siswa;
+    }
+
+    public void setNim_siswa(int nim_siswa) {
+        this.nim_siswa = nim_siswa;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
     public String getJam_login() {
         return jam_login;

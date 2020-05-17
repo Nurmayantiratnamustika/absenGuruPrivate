@@ -13,14 +13,15 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.nurma.absensi.GuruActivity;
 import com.nurma.absensi.R;
 import com.nurma.absensi.model.Login;
+import com.nurma.absensi.model.LoginResponse;
 
 import java.util.List;
 
 public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.ViewHolder> {
-    List<Login> loginList;
+    List<LoginResponse> loginList;
     Context mContext;
 
-    public LoginAdapter(List<Login> loginList, Context mContext) {
+    public LoginAdapter(List<LoginResponse> loginList, Context mContext) {
         this.loginList = loginList;
         this.mContext = mContext;
     }
@@ -32,20 +33,21 @@ public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.ViewHolder> 
         return new ViewHolder(itemView);
     }
 
-    public void setLoginList(List<Login> loginList){
+    public void setLoginList(List<LoginResponse> loginList){
         this.loginList=loginList;
         notifyDataSetChanged();
     }
 
     @Override
     public void onBindViewHolder(@NonNull LoginAdapter.ViewHolder holder, int position) {
-        final Login itemLogin = loginList.get(position);
+        final LoginResponse itemLogin = loginList.get(position);
         holder.tvUsername.setText(itemLogin.getUsername());
         holder.tvPassword.setText(itemLogin.getPassword());
         holder.tvJamlogin.setText(itemLogin.getJam_login());
         holder.tvTanggal.setText(itemLogin.getTanggal());
         holder.tvJamlogout.setText(itemLogin.getJam_logout());
-
+        holder.latitude.setText(itemLogin.getLatitude());
+        holder.longitude.setText(itemLogin.getLongitude());
     }
 
     @Override
@@ -58,7 +60,7 @@ public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.ViewHolder> 
         TextView tvPassword;
         TextView tvJamlogin;
         TextView tvTanggal;
-        TextView tvJamlogout;
+        TextView tvJamlogout,latitude,longitude;;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -67,6 +69,8 @@ public class LoginAdapter extends RecyclerView.Adapter<LoginAdapter.ViewHolder> 
             tvJamlogin=itemView.findViewById(R.id.jamLogin);
             tvTanggal=itemView.findViewById(R.id.tanggalLogin);
             tvJamlogout=itemView.findViewById(R.id.jamLogout);
+            latitude = itemView.findViewById(R.id.latitude);
+            longitude = itemView.findViewById(R.id.longitude);
         }
     }
 }
